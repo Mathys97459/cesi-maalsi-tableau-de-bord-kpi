@@ -3,10 +3,11 @@ import RateKPIForm from "./components/RateKPIForm";
 import KPIList from "./components/KPIList";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
+import { mockKpiList } from './mockKpiList'
 
 function App() {
-  const [kpiList, setKpiList] = useState([]);
-  const [displayDashboard, setDisplayDashboard] = useState(false);
+  const [kpiList, setKpiList] = useState(mockKpiList);
+  const [displayDashboard, setDisplayDashboard] = useState(true);
   const handleAdd = (result) => {
     setKpiList((prev) => [...prev, { ...result, id: Date.now() }]);
   };
