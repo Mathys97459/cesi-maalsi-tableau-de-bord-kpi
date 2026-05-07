@@ -1,0 +1,74 @@
+/* KPIList.css */
+
+.kpi-list {
+  margin-top: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  overflow: hidden;
+}
+
+.kpi-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  font-size: 13px;
+  font-weight: 500;
+  color: #222;
+}
+
+.kpi-count {
+  font-size: 11px;
+  color: #555;
+}
+
+.kpi-columns {
+  display: flex;
+  align-items: center;
+  padding: 6px 15px;
+  font-size: 11px;
+  color: #777;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+}
+
+.kpi-columns span:nth-child(1) { width: 160px; }
+.kpi-columns span:nth-child(2) { flex: 1; }
+.kpi-columns span:nth-child(3) { width: 80px; text-align: right; }
+.kpi-columns span:nth-child(4) { width: 150px; text-align: right; }
+
+.kpi-row {
+  display: flex;
+  align-items: center;
+  padding: 9px 15px;
+  font-size: 13px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.1s;
+}
+
+.kpi-row:last-child { border-bottom: none; }
+.kpi-row:hover { background: #fafafa; }
+
+.kpi-row .kpi-name  { width: 160px; font-weight: 500; color: #222; }
+.kpi-row .kpi-type  { flex: 1; color: #555; }
+.kpi-row .kpi-result { width: 80px; text-align: right; font-family: monospace; color: #222; }
+.kpi-row .kpi-delete { width: 150px; text-align: right; }
+.kpi-row .kpi-delete button {
+  margin-left: 12px;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 3px;
+  color: #c0392b;
+  background: #fdf0ee;
+  font-size: 14px;
+  line-height: 1;
+  transition: all 0.15s;
+}
+
+@media (max-width: 600px) {
+  .kpi-row .kpi-type { display: none; }
+  .kpi-columns span:nth-child(2) { display: none; }
+}

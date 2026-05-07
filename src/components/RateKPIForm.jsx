@@ -2,11 +2,10 @@ import { useState } from "react";
 import { calculateKPI, kpiTypes } from "../utils/kpiCalculations";
 import "./RateKPIForm.css";
 
-export default function RateKPIForm() {
+export default function RateKPIForm({ onAdd }) {
   const [selectedType, setSelectedType] = useState("RATE");
   const [kpiName, setKpiName] = useState("");
   const [inputValues, setInputValues] = useState({});
-  const [result, setResult] = useState(null);
 
   const typeConfig = kpiTypes[selectedType];
 
@@ -52,7 +51,9 @@ export default function RateKPIForm() {
       return;
     }
 
-    setResult(calcResult);
+    onAdd(calcResult)
+    setKpiName('')
+    setInputValues({})
 
     console.log("KPI CALCULÉ");
     console.log(`Nom: ${calcResult.kpiName}`);
@@ -115,24 +116,6 @@ export default function RateKPIForm() {
           Réinitialiser
         </button>
       </div>
-
-      {result && (
-        <div className="result-card">
-          <h2>Résultat</h2>
-          <div className="result-item">
-            <span className="label">Nom KPI:</span>
-            <span className="value">{result.kpiName}</span>
-          </div>
-          <div className="result-item">
-            <span className="label">Type:</span>
-            <span className="value">{result.kpiType}</span>
-          </div>
-          <div className="result-item">
-            <span className="label">Résultat:</span>
-            <span className="value">{result.result}</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
